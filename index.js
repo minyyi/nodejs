@@ -18,6 +18,7 @@ mongoose
 
 app.use(express.json());
 app.use(cors());
+app.enable("trust proxy");
 
 app.get("/", (req, res) => {
   res.set("Access-Control-Allow-Origin", "*");
