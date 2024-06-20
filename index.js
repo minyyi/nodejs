@@ -3,8 +3,6 @@ const express = require("express");
 const mongoose = require("mongoose");
 const app = express();
 const Product = require("./model/productModel.js");
-const helmet = require("helmet");
-const hpp = require("hpp");
 
 mongoose
   .connect(
@@ -20,9 +18,6 @@ mongoose
 
 app.use(express.json());
 app.use(cors());
-app.enable("trust proxy");
-app.use(helmet({ contentSecurityPolicy: false }));
-app.use(hpp());
 
 app.get("/", (req, res) => {
   res.set("Access-Control-Allow-Origin", "*");
