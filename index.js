@@ -5,6 +5,7 @@ const app = express();
 const Product = require("./model/productModel.js");
 const https = require("https");
 const fs = require("fs");
+const express = require("express");
 
 https
   .createServer(
@@ -12,10 +13,9 @@ https
       key: fs.readFileSync(__dirname + "/key.pem", "utf-8"),
       cert: fs.readFileSync(__dirname + "/cert.pem", "utf-8"),
     },
-    function (req, res) {
-      res.write("Congrats! You made https server now :)");
-      res.end();
-    }
+    app.use("/", (req, res) => {
+      res.send("Congrats! You made https server now :)");
+    })
   )
   .listen(5502);
 
