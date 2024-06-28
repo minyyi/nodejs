@@ -5,7 +5,6 @@ const app = express();
 const Product = require("./model/productModel.js");
 const https = require("https");
 const fs = require("fs");
-const express = require("express");
 
 https
   .createServer(
@@ -17,7 +16,7 @@ https
       res.send("Congrats! You made https server now :)");
     })
   )
-  .listen(5502);
+  .listen(80);
 
 mongoose
   .connect(
@@ -25,8 +24,8 @@ mongoose
   )
   .then(() => {
     console.log("Connected!");
-    app.listen(5502, () => {
-      console.log("listening on 5502");
+    app.listen(80, () => {
+      console.log("listening on 80");
     });
   })
   .catch(() => console.log("failed!"));

@@ -12,6 +12,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@tanstack/react-query": "^5.48.0",
+    "@tanstack/react-query-devtools": "^5.48.0",
     "cors": "^2.8.5",
     "express": "^4.19.2",
     "express-session": "^1.18.0",
