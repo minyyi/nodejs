@@ -3,20 +3,20 @@ const express = require("express");
 const mongoose = require("mongoose");
 const app = express();
 const Product = require("./model/productModel.js");
-const https = require("https");
-const fs = require("fs");
+// const https = require("https");
+// const fs = require("fs");
 
-https
-  .createServer(
-    {
-      key: fs.readFileSync(__dirname + "/key.pem", "utf-8"),
-      cert: fs.readFileSync(__dirname + "/cert.pem", "utf-8"),
-    },
-    app.use("/", (req, res) => {
-      res.send("Congrats! You made https server now :)");
-    })
-  )
-  .listen(80);
+// https
+//   .createServer(
+//     {
+//       key: fs.readFileSync(__dirname + "/key.pem", "utf-8"),
+//       cert: fs.readFileSync(__dirname + "/cert.pem", "utf-8"),
+//     },
+//     app.use("/", (req, res) => {
+//       res.send("Congrats! You made https server now :)");
+//     })
+//   )
+//   .listen(80);
 
 mongoose
   .connect(
