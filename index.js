@@ -24,8 +24,8 @@ mongoose
   )
   .then(() => {
     console.log("Connected!");
-    app.listen(80, () => {
-      console.log("listening on 80");
+    app.listen(5502, () => {
+      console.log("listening on 5502");
     });
   })
   .catch(() => console.log("failed!"));
