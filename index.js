@@ -3,29 +3,16 @@ const express = require("express");
 const mongoose = require("mongoose");
 const app = express();
 const Product = require("./model/productModel.js");
-// const https = require("https");
-// const fs = require("fs");
+const dotenv = require("dotenv");
 
-// https
-//   .createServer(
-//     {
-//       key: fs.readFileSync(__dirname + "/key.pem", "utf-8"),
-//       cert: fs.readFileSync(__dirname + "/cert.pem", "utf-8"),
-//     },
-//     app.use("/", (req, res) => {
-//       res.send("Congrats! You made https server now :)");
-//     })
-//   )
-//   .listen(80);
+dotenv.config();
 
 mongoose
-  .connect(
-    "mongodb+srv://ymy0613:zWYZGlEaSzN0bb6r@backenddb.op8dlbi.mongodb.net/Node-API?retryWrites=true&w=majority&appName=BackendDB"
-  )
+  .connect(process.env.MONGODB_URI)
   .then(() => {
     console.log("Connected!");
-    app.listen(5502, () => {
-      console.log("listening on 5502");
+    app.listen(8080, () => {
+      console.log("listening on 8080");
     });
   })
   .catch(() => console.log("failed!"));
