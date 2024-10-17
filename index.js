@@ -6,13 +6,11 @@ const Product = require("./model/productModel.js");
 const compression = require("compression");
 
 mongoose
-  .connect(
-    "mongodb+srv://ymy0613:zWYZGlEaSzN0bb6r@backenddb.op8dlbi.mongodb.net/Node-API?retryWrites=true&w=majority&appName=BackendDB"
-  )
+  .connect(process.env.MONGODB_URI)
   .then(() => {
     console.log("Connected!");
-    app.listen(5502, () => {
-      console.log("listening on 5502");
+    app.listen(8080, () => {
+      console.log("listening on 8080");
     });
   })
   .catch(() => console.log("failed!"));
