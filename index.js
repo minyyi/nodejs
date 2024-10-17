@@ -3,6 +3,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const app = express();
 const Product = require("./model/productModel.js");
+const compression = require("compression");
 
 mongoose
   .connect(
@@ -18,10 +19,11 @@ mongoose
 
 app.use(express.json());
 app.use(cors());
+app.use(compression());
 
 app.get("/", (req, res) => {
   res.set("Access-Control-Allow-Origin", "*");
-  res.status(200).json({ message: "글자가 안보이는데" });
+  res.status(200).json({ message: "Success" });
 });
 app.get("/api/products", async (req, res) => {
   try {
